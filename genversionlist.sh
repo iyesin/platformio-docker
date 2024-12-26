@@ -1,6 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
-
-# quick and nasty script to get versions (on my laptop)
-
-pip3 install platformio== 2>&1 > /dev/null | grep -i "(from versions" | cut -f 3 -d : | sed 's/[,)]//g' | tr ' ' '\n'  | sed '/^$/d'  > allversions.txt 
+curl -sL -H 'Accept: application/vnd.pypi.simple.v1+json' \
+  'https://pypi.org/simple/platformio/' \
+| jq --raw-output '.versions | .[]' > allversions.txt
