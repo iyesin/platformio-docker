@@ -12,7 +12,7 @@ repos:
         args:
           - --failure-threshold=warning
   - repo: https://github.com/siderolabs/conform
-    rev: main
+    rev: "8584940"
     hooks:
       - id: conform
         stages:
