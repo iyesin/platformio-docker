@@ -13,6 +13,7 @@ ENV PIO_VERSION=${version:-6.1.16}
 ENV PIP_ROOT_USER_ACTION=ignore
 ENV PLATFORMIO_CORE_DIR=/build/.platformio
 
+# hadolint ignore=DL3042
 RUN --mount=type=cache,target=/root/.pip \
     --mount=type=cache,target=/root/.cache \
     groupadd --force --system --gid 1000 pio \
